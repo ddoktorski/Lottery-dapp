@@ -1,19 +1,21 @@
 import PieChart from "./PieChart";
 import StatisticGroup from "./Stats";
 import InputActions from "./Input";
-import UsersInfo from './Info';
-import { Menu, Grid, Segment, Icon } from 'semantic-ui-react'
+import UsersInfo from "./Info";
+import { Menu, Grid, Segment, Icon } from "semantic-ui-react";
 import { useEffect, useState } from "react";
 import { useEth } from "../contexts/EthContext";
 
 function Main() {
-  const { state: { contract, accounts } } = useEth();
+  const {
+    state: { contract, accounts },
+  } = useEth();
 
   const [participants, setParticipants] = useState([]);
   const [pot, setPot] = useState(0);
-  const [owner, setOwner] = useState('');
-  const [lastWinner, setLastWinner] = useState('');
-  const [activeItem, setActiveItem] = useState('Chart')
+  const [owner, setOwner] = useState("");
+  const [lastWinner, setLastWinner] = useState("");
+  const [activeItem, setActiveItem] = useState("Chart");
 
   useEffect(() => {
     if (contract) {
@@ -28,48 +30,48 @@ function Main() {
 
   const handleItemClick = (event, { name }) => {
     setActiveItem(name);
-  }
+  };
 
   return (
     <div>
       <Menu pointing inverted>
         <Menu.Item>
-          <Icon name='gem' size='large' />Lottery
+          <Icon name="gem" size="large" />
+          Lottery
         </Menu.Item>
         <Menu.Item
-          name='Chart'
-          active={activeItem === 'Chart'}
+          name="Chart"
+          active={activeItem === "Chart"}
           onClick={handleItemClick}
         />
         <Menu.Item
-          name='Info'
-          active={activeItem === 'Info'}
+          name="Info"
+          active={activeItem === "Info"}
           onClick={handleItemClick}
         />
         <Menu.Item
-          name='Contact'
-          active={activeItem === 'Contact'}
+          name="Contact"
+          active={activeItem === "Contact"}
           onClick={handleItemClick}
         />
-        <Menu.Menu position='right'>
+        <Menu.Menu position="right">
           <Menu.Item>
             <InputActions />
           </Menu.Item>
         </Menu.Menu>
       </Menu>
 
-      <Segment inverted hidden={activeItem !== 'Chart'}>
+      <Segment inverted hidden={activeItem !== "Chart"}>
         <PieChart contract={contract} participants={participants} />
       </Segment>
-      <Segment inverted hidden={activeItem !== 'Info'}>
-        <StatisticGroup 
+      <Segment inverted hidden={activeItem !== "Info"}>
+        <StatisticGroup
           owner={owner}
-          numOfPlayers={participants.length} 
-          pot={pot} 
+          numOfPlayers={participants.length}
+          pot={pot}
           lastWinner={lastWinner}
         />
       </Segment>
-
     </div>
 
     // <div className='main'>
@@ -80,7 +82,7 @@ function Main() {
     //         <PieChart contract={contract} participants={participants} />
     //       </Grid.Column>
     //       <Grid.Column>
-    //         <StatisticGroup numOfPlayers={participants.length} pot={pot}> 
+    //         <StatisticGroup numOfPlayers={participants.length} pot={pot}>
     //         </StatisticGroup>
     //       </Grid.Column>
     //     </Grid.Row>
