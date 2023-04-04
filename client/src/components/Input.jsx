@@ -28,7 +28,7 @@ function InputActions({ contract, accounts }) {
   };
 
   return (
-    <Input type="text" action className="bar">
+    <Input type="text" action>
       <input
         onChange={(event) => setInputValue(event.target.value)}
         value={inputValue}

@@ -50,7 +50,7 @@ function Main() {
         />
         <Menu.Menu position="right">
           <Menu.Item>
-            <InputActions />
+            <InputActions contract={contract} accounts={accounts} />
           </Menu.Item>
         </Menu.Menu>
       </Menu>
