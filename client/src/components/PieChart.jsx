@@ -22,7 +22,6 @@ function PieChart({ contract, participants }) {
   const options = {
     title: { value: "Current pot distribution by users", alignment: "center" },
     pieHole: 0.4,
-    sliceVisibilityThreshold: 0.2,
     sliceVisibilityThreshold: 0.01,
   };
 

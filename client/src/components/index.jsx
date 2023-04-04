@@ -1,8 +1,7 @@
 import PieChart from "./PieChart";
 import StatisticGroup from "./Stats";
 import InputActions from "./Input";
-import UsersInfo from "./Info";
-import { Menu, Grid, Segment, Icon } from "semantic-ui-react";
+import { Menu, Segment, Icon } from "semantic-ui-react";
 import { useEffect, useState } from "react";
 import { useEth } from "../contexts/EthContext";
 
@@ -49,11 +48,6 @@ function Main() {
           active={activeItem === "Info"}
           onClick={handleItemClick}
         />
-        <Menu.Item
-          name="Contact"
-          active={activeItem === "Contact"}
-          onClick={handleItemClick}
-        />
         <Menu.Menu position="right">
           <Menu.Item>
             <InputActions />
@@ -73,22 +67,6 @@ function Main() {
         />
       </Segment>
     </div>
-
-    // <div className='main'>
-    //   <InputActions contract={contract} accounts={accounts} />
-    //   <Grid divided='vertically'>
-    //     <Grid.Row columns={2}>
-    //       <Grid.Column>
-    //         <PieChart contract={contract} participants={participants} />
-    //       </Grid.Column>
-    //       <Grid.Column>
-    //         <StatisticGroup numOfPlayers={participants.length} pot={pot}>
-    //         </StatisticGroup>
-    //       </Grid.Column>
-    //     </Grid.Row>
-    //   </Grid>
-    //   <UsersInfo owner={owner} lastWinner={lastWinner} />
-    // </div>
   );
 }
 
