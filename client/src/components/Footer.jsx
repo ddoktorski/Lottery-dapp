@@ -1,7 +1,9 @@
-function Link({ uri, text }) {
+import { Icon } from "semantic-ui-react";
+
+function Link({ uri, icon }) {
   return (
-    <a href={uri} target="_blank" rel="noreferrer">
-      {text}
+    <a href={uri} target="_blank" rel="noreferrer" style={{ color: "black" }}>
+      <Icon name={icon} size="big" />
     </a>
   );
 }
@@ -9,11 +11,16 @@ function Link({ uri, text }) {
 function Footer() {
   return (
     <footer>
-      <h2>More resources</h2>
-      <Link uri={"https://trufflesuite.com"} text={"Truffle"} />
-      <Link uri={"https://reactjs.org"} text={"React"} />
-      <Link uri={"https://soliditylang.org"} text={"Solidity"} />
-      <Link uri={"https://ethereum.org"} text={"Ethereum"} />
+      <Link
+        uri={"https://github.com/ddoktorski/lottery-dapp"}
+        icon={"github"}
+      />
+      <Link
+        uri={
+          "https://sepolia.etherscan.io/address/0xf17470774b81039B55cd02f0A9851e7A250FF973"
+        }
+        icon={"ethereum"}
+      />
     </footer>
   );
 }
